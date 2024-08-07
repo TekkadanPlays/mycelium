@@ -1,0 +1,239 @@
+@font-face {
+    font-family: 'Joystix';
+    src: url('../fonts/joystix.otf') format('opentype');
+}
+
+/* Base Styles */
+body {
+    font-family: 'Joystix', sans-serif;
+    background-color: #8c7b9b;
+    color: white;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+textarea, input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'Joystix', sans-serif;
+}
+
+input {
+    height: auto; /* Adjusting input height */
+    padding: 10px;
+}
+
+textarea {
+    height: 100px;
+}
+
+button {
+    font-family: 'Joystix', sans-serif;
+    display: block;
+    padding: 10px 20px;
+    margin: 4px 2px;
+    background-color: #232323;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 4px #999;
+}
+
+button:hover {
+    background-color: #918bc0;
+}
+
+button:active {
+    background-color: #32213A;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
+}
+
+/* Upload button */
+
+.button-like {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px #999;
+}
+
+.button-like:hover {
+    background-color: #AFD5AA;
+}
+
+.button-like:active {
+    background-color: #3e8e41;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
+}
+
+
+/* Navbar Styles */
+.navbar {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Content Styles */
+.content {
+    max-width: 600px;
+    margin: 0 auto;
+    overflow-wrap: break-word;
+}
+
+.ascii-art {
+    font-family: monospace; /* Ensures the ASCII art displays correctly */
+    white-space: pre; /* Preserves the formatting */
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adjust shadow as needed */
+}
+
+/* Post Styles */
+li {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    position: relative;
+}
+
+li + li {
+    margin-top: 20px;
+}
+
+.post {
+    position: relative;
+    padding-bottom: 30px; /* Add padding to make space for the button */
+}
+
+.post-header, .comment-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.post-info, .comment-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.post-username, .comment-username {
+    font-weight: bold;
+}
+
+.post-timestamp, .comment-timestamp,
+.post-id, .comment-id {
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+.post-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0 #000000;
+}
+
+.post-content {
+    margin-bottom: 20px;
+}
+
+.expand-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #918bc0;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: white;
+    box-shadow: 0 2px #666;
+    text-decoration: none;
+}
+
+.expand-button:hover {
+    background-color: #a79dcf;
+}
+
+.expand-button:active {
+    background-color: #a79dcf;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
+}
+
+.divider {
+    height: 1px;
+    background-color: #F0F2EF;
+    margin: 10px 0; /* Adjust the margin as needed */
+}
+
+/* Footer Styles */
+.footer {
+    font-family: 'Diplomata SC', cursive;
+    text-align: center;
+    background-color: #232323;
+    padding: 10px;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.footer-content {
+    display: inline-block;
+    animation: scroll-left 30s linear infinite;
+}
+
+@keyframes scroll-left {
+    from {
+        transform: translateX(50%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.footer-content span {
+    padding: 0 100px;
+}

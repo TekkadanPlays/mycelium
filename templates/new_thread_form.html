@@ -1,0 +1,16 @@
+<form action="{{ action_url }}" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <input type="text" id="title" name="title" placeholder="Title" style="height: auto; padding: 10px;">
+    </div>
+    <div class="form-group">
+        <textarea id="content" name="content" rows="4" cols="50" placeholder="Content"></textarea>
+    </div>
+    <div class="form-group" style="float: left;">
+        <label for="file-upload" class="button-like">Upload</label>
+        <input type="file" id="file-upload" name="file" style="display: none;">
+    </div>
+    <div class="form-group" style="float: right;">
+        <button type="submit">Submit</button>
+    </div>
+    <div style="clear: both;"></div>
+</form>

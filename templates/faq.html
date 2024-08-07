@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}mycelium.social{% endblock %}
+{% block content %}
+    <h1 class="text-shadow">ask</h1>
+    <pre class="ascii-art text-shadow">
+        ███▄ ▄███▓▓██   ██▓ ▄████▄  ▓█████  ██▓     ██▓ █    ██  ███▄ ▄███▓
+       ▓██▒▀█▀ ██▒ ▒██  ██▒▒██▀ ▀█  ▓█   ▀ ▓██▒    ▓██▒ ██  ▓██▒▓██▒▀█▀ ██▒
+       ▓██    ▓██░  ▒██ ██░▒▓█    ▄ ▒███   ▒██░    ▒██▒▓██  ▒██░▓██    ▓██░
+       ▒██    ▒██   ░ ▐██▓░▒▓▓▄ ▄██▒▒▓█  ▄ ▒██░    ░██░▓▓█  ░██░▒██    ▒██ 
+       ▒██▒   ░██▒  ░ ██▒▓░▒ ▓███▀ ░░▒████▒░██████▒░██░▒▒█████▓ ▒██▒   ░██▒
+       ░ ▒░   ░  ░   ██▒▒▒ ░ ░▒ ▒  ░░░ ▒░ ░░ ▒░▓  ░░▓  ░▒▓▒ ▒ ▒ ░ ▒░   ░  ░
+       ░  ░      ░ ▓██ ░▒░   ░  ▒    ░ ░  ░░ ░ ▒  ░ ▒ ░░░▒░ ░ ░ ░  ░      ░
+       ░      ░    ▒ ▒ ░░  ░           ░     ░ ░    ▒ ░ ░░░ ░ ░ ░      ░   
+              ░    ░ ░     ░ ░         ░  ░    ░  ░ ░     ░            ░   
+                   ░ ░     ░                                               
+   </pre>
+    </br>
+    <p>Did you use ChatGPT to create mycelium?</p>
+    <p>Yes.</p>
+    </br>
+    <p>Can I submit illegal content to mycelium?</p>
+    <p>Any users who submit content which violates United States law will be promptly banned and reported to my local police department, library, post office, Amazon distribution center, the FBI, CIA, DHS, IRS, StarBucks, and the Navy Seals. </p>
+    </br>
+    <p>Are there any forbidden words on mycelium?</p>
+    <p>Yes, but I cannot tell you which.</p>
+    <div class="divider"></div>
+    <div class="navbar">
+        <a href="{{ url_for('index') }}" class="text-shadow">Home</a>
+        /
+        <a href="{{ url_for('about') }}" class="text-shadow">About</a>
+        /
+        <a href="{{ url_for('faq') }}" class="text-shadow">FAQ</a>
+    </div>
+{% endblock %}

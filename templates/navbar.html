@@ -1,0 +1,6 @@
+<div class="navbar">
+    {% for board in boards %}
+        <a href="{{ url_for('board', board_name=board['name']) }}" class="text-shadow">{{ board['name'] }}</a>{% if not loop.last %} /{% endif %}
+    {% endfor %}
+</div>
+<div class="divider"></div>

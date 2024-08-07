@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ board_name }}{% endblock %}
+{% block content %}
+    <h1 class="text-shadow">{{ board_name }}</h1>
+    {% with action_url=url_for('add_post', board_name=board_name) %}
+        {% include 'new_thread_form.html' %}
+    {% endwith %}
+    <div class="divider"></div>
+    <a href="{{ url_for('index') }}">&lt;&lt; Back to Index</a>
+    <ul>
+        {% for post in posts %}
+            <li class="post">
+                <div class="post-header">
+                    <div class="post-username">Anonymous</div>
+                    <div class="post-info">
+                        <span class="post-timestamp">{{ post['timestamp'] }}</span>
+                        <span class="post-id">ID: &gt;&gt;<a href="{{ url_for('post', board_name=board_name, post_id=post['id']) }}">{{ post['id'] }}</a></span>
+                    </div>
+                </div>
+                <h2 class="post-title">{{ post['title'] }}</h2>
+                <p class="post-content">
+                    {{ post['content'][:200] }}{% if post['content']|length > 200 %}...{% endif %}
+                </p>
+                {% if post['content']|length > 200 %}
+                    <a href="{{ url_for('post', board_name=board_name, post_id=post['id']) }}" class="expand-button">&gt; Expand</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

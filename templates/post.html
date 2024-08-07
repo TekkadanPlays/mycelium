@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}{{ post['title'] }}{% endblock %}
+{% block content %}
+    <h1 class="text-shadow">{{ board_name }}</h1>
+    <a href="{{ url_for('board', board_name=board_name) }}">&lt;&lt; Back to {{ board_name }}</a>
+    <div class="post-header">
+        <div class="post-info">
+            <span class="post-username">Anonymous</span>
+            <span class="post-id">ID: &gt;&gt;<a href="javascript:void(0)" data-reply-id="{{ post['id'] }}" class="reply-link">{{ post['id'] }}</a></span>
+        </div>
+    </div>
+    <h2 class="text-shadow">{{ post['title'] }}</h2>
+    <p>{{ post['content'] }}</p>
+    <a href="javascript:void(0)" data-reply-id="{{ post['id'] }}" class="reply-link expand-button">Reply</a>
+    <ul>
+        {% for comment in comments %}
+            <li>
+                <div class="comment-header">
+                    <div class="comment-info">
+                        <span class="comment-username">Anonymous</span>
+                        <span class="comment-id">ID: &gt;&gt;<a href="javascript:void(0)" data-reply-id="{{ comment['id'] }}" class="reply-link">{{ comment['id'] }}</a></span>
+                    </div>
+                </div>
+                <p>{{ comment['content'] }}</p>
+                <a href="javascript:void(0)" data-reply-id="{{ comment['id'] }}" class="reply-link expand-button">Reply</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% with action_url=url_for('add_comment', board_name=board_name, post_id=post['id']) %}
+        {% include 'reply_form.html' %}
+    {% endwith %}
+{% endblock %}
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Document loaded and script running');
+        const replyLinks = document.querySelectorAll('.reply-link');
+        console.log('Found reply links:', replyLinks.length);
+        replyLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('Reply link clicked');
+                const replyId = this.getAttribute('data-reply-id');
+                console.log('Reply ID:', replyId);
+                const replyForm = document.getElementById('reply-form');
+                const contentBox = document.getElementById('reply-content');
+                if (replyForm && contentBox) {
+                    contentBox.value = `>>${replyId}\n`;
+                    replyForm.style.display = 'block';
+                    contentBox.focus();
+                } else {
+                    console.error('Reply form or content box not found.');
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

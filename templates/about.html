@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}mycelium.social{% endblock %}
+{% block content %}
+    <h1 class="text-shadow">about</h1>
+    <pre class="ascii-art text-shadow">
+        ███▄ ▄███▓▓██   ██▓ ▄████▄  ▓█████  ██▓     ██▓ █    ██  ███▄ ▄███▓
+       ▓██▒▀█▀ ██▒ ▒██  ██▒▒██▀ ▀█  ▓█   ▀ ▓██▒    ▓██▒ ██  ▓██▒▓██▒▀█▀ ██▒
+       ▓██    ▓██░  ▒██ ██░▒▓█    ▄ ▒███   ▒██░    ▒██▒▓██  ▒██░▓██    ▓██░
+       ▒██    ▒██   ░ ▐██▓░▒▓▓▄ ▄██▒▒▓█  ▄ ▒██░    ░██░▓▓█  ░██░▒██    ▒██ 
+       ▒██▒   ░██▒  ░ ██▒▓░▒ ▓███▀ ░░▒████▒░██████▒░██░▒▒█████▓ ▒██▒   ░██▒
+       ░ ▒░   ░  ░   ██▒▒▒ ░ ░▒ ▒  ░░░ ▒░ ░░ ▒░▓  ░░▓  ░▒▓▒ ▒ ▒ ░ ▒░   ░  ░
+       ░  ░      ░ ▓██ ░▒░   ░  ▒    ░ ░  ░░ ░ ▒  ░ ▒ ░░░▒░ ░ ░ ░  ░      ░
+       ░      ░    ▒ ▒ ░░  ░           ░     ░ ░    ▒ ░ ░░░ ░ ░ ░      ░   
+              ░    ░ ░     ░ ░         ░  ░    ░  ░ ░     ░            ░   
+                   ░ ░     ░                                               
+   </pre>
+    <br>
+    <p>Created by: Tekkadan</p>
+    <p>Relationship status: Single</p>
+    <p>Employment status: Self-employed</p>
+    <p>Bank balance: <span style="color:rgb(57, 219, 57)">$114.31</span></p>
+    <p>Debt: <span style="color:rgb(223, 53, 53)">$3730.89</span></p>
+    <p>Soylent remaining: 9450g | 333 oz</p>
+    <p style="text-align: center;">#FreeTekkadan</p>
+    <div class="divider"></div>
+    <div class="navbar">
+        <a href="{{ url_for('index') }}" class="text-shadow">Home</a>
+        /
+        <a href="{{ url_for('about') }}" class="text-shadow">About</a>
+        /
+        <a href="{{ url_for('faq') }}" class="text-shadow">FAQ</a>
+    </div>
+{% endblock %}

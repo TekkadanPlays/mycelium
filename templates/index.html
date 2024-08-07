@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}mycelium.social{% endblock %}
+{% block content %}
+    <h1 class="text-shadow">welcome to</h1>
+    <pre class="ascii-art text-shadow">
+        ███▄ ▄███▓▓██   ██▓ ▄████▄  ▓█████  ██▓     ██▓ █    ██  ███▄ ▄███▓
+       ▓██▒▀█▀ ██▒ ▒██  ██▒▒██▀ ▀█  ▓█   ▀ ▓██▒    ▓██▒ ██  ▓██▒▓██▒▀█▀ ██▒
+       ▓██    ▓██░  ▒██ ██░▒▓█    ▄ ▒███   ▒██░    ▒██▒▓██  ▒██░▓██    ▓██░
+       ▒██    ▒██   ░ ▐██▓░▒▓▓▄ ▄██▒▒▓█  ▄ ▒██░    ░██░▓▓█  ░██░▒██    ▒██ 
+       ▒██▒   ░██▒  ░ ██▒▓░▒ ▓███▀ ░░▒████▒░██████▒░██░▒▒█████▓ ▒██▒   ░██▒
+       ░ ▒░   ░  ░   ██▒▒▒ ░ ░▒ ▒  ░░░ ▒░ ░░ ▒░▓  ░░▓  ░▒▓▒ ▒ ▒ ░ ▒░   ░  ░
+       ░  ░      ░ ▓██ ░▒░   ░  ▒    ░ ░  ░░ ░ ▒  ░ ▒ ░░░▒░ ░ ░ ░  ░      ░
+       ░      ░    ▒ ▒ ░░  ░           ░     ░ ░    ▒ ░ ░░░ ░ ░ ░      ░   
+              ░    ░ ░     ░ ░         ░  ░    ░  ░ ░     ░            ░   
+                   ░ ░     ░                                               
+   </pre>
+    <br>
+    <p>Choose a board from the top of the page to begin browsing.</p>
+    <div class="divider"></div>
+    <div class="navbar">
+        <a href="{{ url_for('index') }}" class="text-shadow">Home</a>
+        /
+        <a href="{{ url_for('about') }}" class="text-shadow">About</a>
+        /
+        <a href="{{ url_for('faq') }}" class="text-shadow">FAQ</a>
+    </div>
+{% endblock %}
