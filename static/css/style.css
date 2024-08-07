@@ -6,7 +6,7 @@
 /* Base Styles */
 body {
     font-family: 'Joystix', sans-serif;
-    background-color: #8c7b9b;
+    background: #8c7b9b url(/static/images/fade.png) top center repeat-x;
     color: white;
     margin: 0;
     padding: 20px;
@@ -133,6 +133,10 @@ li {
     border-radius: 5px;
     background-color: #2e2e2e;
     position: relative;
+}
+
+li:hover {
+    background-color: #32213A;
 }
 
 li + li {

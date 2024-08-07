@@ -12,6 +12,7 @@
     <h2 class="text-shadow">{{ post['title'] }}</h2>
     <p>{{ post['content'] }}</p>
     <a href="javascript:void(0)" data-reply-id="{{ post['id'] }}" class="reply-link expand-button">Reply</a>
+    <div class="divider"></div>
     <ul>
         {% for comment in comments %}
             <li>
