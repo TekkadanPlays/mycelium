@@ -7,10 +7,23 @@
 <br>
 
 ### <p align="center">- To Do List -</p>
-- [ ] Add maximum posts per page (10 post maximum?)
-- [ ] Add board decay (10 page maximum)
-- [ ] Add static and floating comment reply submission forms
-- [ ] Integrate nostrband/nostr-login
+
+### Back End
+- [ ] Thread locking (maximum 250-500 responses)
 - [ ] Auto-populate reply forms with post/comment ID's when clicked
 - [ ] Add proper image uploading
 - [ ] Format posts and comment replies (to include images, as well)
+
+### Front End
+- [ ] Add maximum posts per page (15 post maximum)
+- [ ] Add board decay (10 page maximum)
+- [ ] Display 5 (max) most recent replies when browsing a board
+- [ ] Greentext
+- [ ] Linking to other posts (and boards)
+- [ ] Linking to posts on other boards
+- [ ] Static and floating comment replies
+- [ ] Embedded image uploads
+
+
+### Nostr
+- [ ] Integrate nostr-login
