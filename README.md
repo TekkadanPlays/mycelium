@@ -10,13 +10,14 @@
 
 ### Back End
 - [ ] Thread locking (maximum 250-500 responses)
+- [ ] Thread decay (150 maximum threads per board)
 - [ ] Auto-populate reply forms with post/comment ID's when clicked
 - [ ] Add proper image uploading
 - [ ] Format posts and comment replies (to include images, as well)
 
 ### Front End
 - [ ] Add maximum posts per page (15 post maximum)
-- [ ] Add board decay (10 page maximum)
+- [ ] Add page selector (10 page maximum)
 - [ ] Display 5 (max) most recent replies when browsing a board
 - [ ] Greentext
 - [ ] Linking to other posts (and boards)
@@ -27,3 +28,6 @@
 
 ### Nostr
 - [ ] Integrate nostr-login
+
+### Long-Term
+- [ ] Administrative / Moderator privileges
