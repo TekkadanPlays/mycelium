@@ -2,6 +2,18 @@
 {% block title %}{{ board_name }}{% endblock %}
 {% block content %}
     <h1 class="text-shadow">{{ board_name }}</h1>
+    <pre class="ascii-art text-shadow">
+         ███▄ ▄███▓▓██   ██▓ ▄████▄  ▓█████  ██▓     ██▓ █    ██  ███▄ ▄███▓
+        ▓██▒▀█▀ ██▒ ▒██  ██▒▒██▀ ▀█  ▓█   ▀ ▓██▒    ▓██▒ ██  ▓██▒▓██▒▀█▀ ██▒
+        ▓██    ▓██░  ▒██ ██░▒▓█    ▄ ▒███   ▒██░    ▒██▒▓██  ▒██░▓██    ▓██░
+        ▒██    ▒██   ░ ▐██▓░▒▓▓▄ ▄██▒▒▓█  ▄ ▒██░    ░██░▓▓█  ░██░▒██    ▒██ 
+        ▒██▒   ░██▒  ░ ██▒▓░▒ ▓███▀ ░░▒████▒░██████▒░██░▒▒█████▓ ▒██▒   ░██▒
+        ░ ▒░   ░  ░   ██▒▒▒ ░ ░▒ ▒  ░░░ ▒░ ░░ ▒░▓  ░░▓  ░▒▓▒ ▒ ▒ ░ ▒░   ░  ░
+        ░  ░      ░ ▓██ ░▒░   ░  ▒    ░ ░  ░░ ░ ▒  ░ ▒ ░░░▒░ ░ ░ ░  ░      ░
+        ░      ░    ▒ ▒ ░░  ░           ░     ░ ░    ▒ ░ ░░░ ░ ░ ░      ░   
+               ░    ░ ░     ░ ░         ░  ░    ░  ░ ░     ░            ░   
+                    ░ ░     ░                                               
+    </pre>
     {% with action_url=url_for('add_post', board_name=board_name) %}
         {% include 'new_thread_form.html' %}
     {% endwith %}
@@ -11,6 +23,10 @@
         {% for post in posts %}
             <li class="post">
                 <div class="post-header">
+                    <label class="container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
                     <div class="post-username">Anonymous</div>
                     <div class="post-info">
                         <span class="post-timestamp">{{ post['timestamp'] }}</span>

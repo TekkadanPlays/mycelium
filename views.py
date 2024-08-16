@@ -3,6 +3,8 @@
 
 from flask import Flask, render_template, request, redirect, url_for
 from database import get_db_connection
+import re
+import os
 
 app = Flask(__name__)
 
@@ -24,6 +26,21 @@ def about():
 @app.route('/faq')
 def faq():
     return render_template('faq.html')
+
+def process_post_content(content, current_board):
+    # Convert `>` to green text
+    content = re.sub(r'^>(.*)', r'<span class="green-text">\1</span>', content, flags=re.MULTILINE)
+    
+    # Hotlink `>>` references to posts on the same board
+    content = re.sub(r'>>(\d+)', r'<a href="/{}/post/\1">>>\1</a>'.format(current_board), content)
+    
+    # Hotlink `>>>` cross-board references
+    content = re.sub(r'>>>/(\w+)/(\d+)', r'<a href="/\1/post/\2">>>>\1/\2</a>', content)
+    
+    # Hotlink `>>>` board references
+    content = re.sub(r'>>>/(\w+)/?', r'<a href="/\1">>>>\1</a>', content)
+    
+    return content
 
 @app.route('/<board_name>/')
 def board(board_name):
@@ -64,6 +81,7 @@ def get_next_id_for_board(board_id):
 def add_post(board_name):
     title = request.form.get('title')
     content = request.form['content']
+    processed_content = process_post_content(content, board_name)
     conn = get_db_connection()
     board = conn.execute('SELECT * FROM boards WHERE name = ?', (board_name,)).fetchone()
     if board is None:
@@ -72,7 +90,7 @@ def add_post(board_name):
     board_id = board['id']
     new_id = get_next_id_for_board(board_id)
     conn.execute('INSERT INTO posts_comments (id, board_id, parent_id, title, content, last_activity) VALUES (?, ?, NULL, ?, ?, CURRENT_TIMESTAMP)', 
-                 (new_id, board_id, title, content))
+                 (new_id, board_id, title, processed_content))
     conn.commit()
     conn.close()
     return redirect(url_for('board', board_name=board_name))
@@ -80,6 +98,7 @@ def add_post(board_name):
 @app.route('/<board_name>/post/<int:post_id>/add_comment', methods=['POST'])
 def add_comment(board_name, post_id):
     content = request.form['content']
+    processed_content = process_post_content(content, board_name)
     conn = get_db_connection()
     board = conn.execute('SELECT * FROM boards WHERE name = ?', (board_name,)).fetchone()
     if board is None:
@@ -89,7 +108,7 @@ def add_comment(board_name, post_id):
         return "Post not found", 404
     new_id = get_next_id_for_board(board['id'])
     conn.execute('INSERT INTO posts_comments (id, board_id, parent_id, content, last_activity) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP)', 
-                 (new_id, board['id'], post_id, content))
+                 (new_id, board['id'], post_id, processed_content))
     conn.execute('UPDATE posts_comments SET last_activity = CURRENT_TIMESTAMP WHERE id = ? AND board_id = ?', (post_id, board['id']))
     conn.commit()
     conn.close()
